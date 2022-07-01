@@ -3,6 +3,7 @@ import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
 import '../../pages/profile/profile.dart';
 import '../../globalclass.dart' as _gc;
+import '../../globalfunction.dart' as _gf;
 
 class CustomListView extends StatelessWidget {
   List<_gc.ItemWithIcon> _list;
@@ -27,6 +28,10 @@ class CustomListView extends StatelessWidget {
             leading: item.value.icon,
             title: Text(item.value.name),
             trailing: Icon(Icons.arrow_forward_ios, color: Colors.orange[200]),
+            onTap: (() {
+              _gf.handleRouting(context, item.value.name, item.value.needsAuth,
+                  item.value.needsRouting);
+            }),
           );
         }).toList(),
       ),

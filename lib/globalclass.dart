@@ -9,10 +9,16 @@ class Item {
 
 class ItemWithUrl extends Item {
   String url;
-  ItemWithUrl(String name, this.url) : super(name);
+  bool needsAuth;
+  ItemWithUrl(String name, {this.needsAuth = false, required this.url})
+      : super(name);
 }
 
 class ItemWithIcon extends Item {
   Widget icon;
-  ItemWithIcon(String name, this.icon) : super(name);
+  bool needsAuth;
+  bool needsRouting;
+  ItemWithIcon(String name,
+      {this.needsRouting = true, this.needsAuth = false, required this.icon})
+      : super(name);
 }

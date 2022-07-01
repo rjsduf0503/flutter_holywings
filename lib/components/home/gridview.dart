@@ -6,11 +6,6 @@ import '../../globalfunction.dart' as _gf;
 import '../../globalclass.dart' as _gc;
 import '../../pages/modal/stackrouting.dart' as _routing;
 
-class Item {
-  String url, name;
-  Item({required this.url, required this.name});
-}
-
 class GridViewComponent extends StatefulWidget {
   const GridViewComponent({Key? key}) : super(key: key);
 
@@ -20,11 +15,11 @@ class GridViewComponent extends StatefulWidget {
 
 class _GridViewComponentState extends State<GridViewComponent> {
   List<_gc.ItemWithUrl> itemList = [
-    _gc.ItemWithUrl("Reservation", "assets/table.png"),
-    _gc.ItemWithUrl("Outlet", "assets/outlet.png"),
-    _gc.ItemWithUrl("My Bottles", "assets/bottle.png"),
-    _gc.ItemWithUrl("What's On", "assets/board.png"),
-    _gc.ItemWithUrl("Holy Chest", "assets/chest.png"),
+    _gc.ItemWithUrl("Reservation", url: "assets/table.png"),
+    _gc.ItemWithUrl("Outlet", url: "assets/outlet.png"),
+    _gc.ItemWithUrl("My Bottles", url: "assets/bottle.png", needsAuth: true),
+    _gc.ItemWithUrl("What's On", url: "assets/board.png"),
+    _gc.ItemWithUrl("Holy Chest", url: "assets/chest.png", needsAuth: true),
   ];
 
   @override
@@ -39,7 +34,7 @@ class _GridViewComponentState extends State<GridViewComponent> {
       children: itemList.asMap().entries.map((item) {
         return InkWell(
           onTap: (() {
-            _gf.handleGridClick(context, item.value.name);
+            _gf.handleRouting(context, item.value.name, item.value.needsAuth);
           }),
           child: Column(
             children: [

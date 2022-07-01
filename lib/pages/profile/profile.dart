@@ -7,22 +7,28 @@ import '../../components/profile/customlistview.dart' as _customlistview;
 
 class ProfileWidget extends StatelessWidget {
   List<_gc.ItemWithUrl> badgeList = [
-    _gc.ItemWithUrl("Basic", "assets/holywings-logo.png"),
-    _gc.ItemWithUrl("Green", "assets/holywings-logo.png"),
-    _gc.ItemWithUrl("VIP", "assets/holywings-logo.png"),
-    _gc.ItemWithUrl("Priority", "assets/holywings-logo.png"),
+    _gc.ItemWithUrl("Basic", url: "assets/holywings-logo.png"),
+    _gc.ItemWithUrl("Green", url: "assets/holywings-logo.png"),
+    _gc.ItemWithUrl("VIP", url: "assets/holywings-logo.png"),
+    _gc.ItemWithUrl("Priority", url: "assets/holywings-logo.png"),
   ];
 
   List<_gc.ItemWithIcon> accountList = [
-    _gc.ItemWithIcon("My Profile", Icon(Icons.account_circle)),
-    _gc.ItemWithIcon("My Voucher", Icon(Icons.confirmation_number)),
-    _gc.ItemWithIcon("Setting", Icon(Icons.settings)),
+    _gc.ItemWithIcon("My Profile",
+        icon: Icon(Icons.account_circle), needsAuth: true),
+    _gc.ItemWithIcon("My Voucher",
+        icon: Icon(Icons.confirmation_number), needsAuth: true),
+    _gc.ItemWithIcon("Setting", icon: Icon(Icons.settings)),
   ];
 
   List<_gc.ItemWithIcon> othersList = [
-    _gc.ItemWithIcon("Contact Us", Icon(Icons.contact_phone)),
-    _gc.ItemWithIcon("Help", Icon(Icons.help_outline)),
-    _gc.ItemWithIcon("Rate Holywings App", Icon(Icons.thumb_up)),
+    _gc.ItemWithIcon("Contact Us",
+        icon: Icon(Icons.contact_phone), needsRouting: false),
+    _gc.ItemWithIcon("Help",
+        icon: Icon(Icons.help_outline), needsRouting: false),
+    _gc.ItemWithIcon("Rate Holywings App",
+        icon: Icon(Icons.thumb_up, color: Colors.orange[200]),
+        needsRouting: false),
   ];
 
   @override
@@ -100,7 +106,8 @@ class ProfileWidget extends StatelessWidget {
                     children: badgeList.asMap().entries.map((item) {
                       return InkWell(
                         onTap: (() {
-                          _gf.handleBadgeClick(context, 'Membership Benefit');
+                          _gf.handleRouting(context, 'Membership Benefit',
+                              item.value.needsAuth);
                         }),
                         child: Column(
                           children: [

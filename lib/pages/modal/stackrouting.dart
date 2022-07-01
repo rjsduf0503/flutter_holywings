@@ -4,6 +4,8 @@ import './reservation/reservation.dart';
 import './outlet/outlet.dart';
 import './whatson/whatson.dart';
 import './notification/notification.dart' as _Notification;
+import './membership/membership.dart';
+import './setting/setting.dart';
 
 // class Params {
 //   final String name;
@@ -28,6 +30,10 @@ class StackRouting extends StatelessWidget {
         return WhatsOn();
       case "Notification":
         return _Notification.Notification();
+      case "Membership Benefit":
+        return Membership();
+      case "Setting":
+        return Setting();
       default:
         return SizedBox.shrink();
     }
