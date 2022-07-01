@@ -43,6 +43,8 @@ class StackRouting extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.grey[850],
         title: Text(item),
       ),
       body: getStackBody(),
