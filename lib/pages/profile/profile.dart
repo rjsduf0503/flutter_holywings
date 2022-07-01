@@ -101,30 +101,51 @@ class ProfileWidget extends StatelessWidget {
                   left: 0,
                   bottom: MediaQuery.of(context).size.height * 0.01,
                   width: MediaQuery.of(context).size.width,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: badgeList.asMap().entries.map((item) {
-                      return InkWell(
-                        onTap: (() {
-                          _gf.handleRouting(context, 'Membership Benefit',
-                              item.value.needsAuth);
-                        }),
-                        child: Column(
-                          children: [
-                            SizedBox(height: 8),
-                            Image.asset(
-                              item.value.url,
-                              fit: BoxFit.contain,
-                              width: 64,
-                              height: 64,
-                            ),
-                            Text(item.value.name,
-                                style: TextStyle(
-                                    fontSize: 12, fontWeight: FontWeight.bold)),
-                          ],
+                  child: Column(
+                    children: [
+                      SliderTheme(
+                        data: SliderThemeData(
+                          disabledActiveTrackColor: Colors.orange[200],
+                          disabledInactiveTrackColor: Colors.grey[600],
+                          trackHeight: 20,
+                          thumbShape:
+                              RoundSliderThumbShape(enabledThumbRadius: 0.0),
+                          // trackShape: SliderTrackShape(style: ),
                         ),
-                      );
-                    }).toList(),
+                        child: Slider(
+                          value: 20,
+                          onChanged: null,
+                          min: 0,
+                          max: 100,
+                        ),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: badgeList.asMap().entries.map((item) {
+                          return InkWell(
+                            onTap: (() {
+                              _gf.handleRouting(context, 'Membership Benefit',
+                                  item.value.needsAuth);
+                            }),
+                            child: Column(
+                              children: [
+                                SizedBox(height: 8),
+                                Image.asset(
+                                  item.value.url,
+                                  fit: BoxFit.contain,
+                                  width: 64,
+                                  height: 64,
+                                ),
+                                Text(item.value.name,
+                                    style: TextStyle(
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.bold)),
+                              ],
+                            ),
+                          );
+                        }).toList(),
+                      ),
+                    ],
                   ),
                 ),
               ],
