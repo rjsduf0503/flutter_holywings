@@ -152,7 +152,7 @@ class ProfileWidget extends StatelessWidget {
             ),
           ),
           SizedBox(height: MediaQuery.of(context).size.height * 0.01),
-          _customlistview.CustomListView(accountList),
+          _customlistview.CustomListView(othersList),
 
           SizedBox(height: MediaQuery.of(context).size.height * 0.02),
           // ),
