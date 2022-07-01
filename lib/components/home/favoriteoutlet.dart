@@ -29,7 +29,7 @@ class _OutletComponentState extends State<OutletComponent> {
         ),
         InkWell(
           onTap: (() {
-            _gf.handleGridClick(context, 'Outlet');
+            _gf.handleRouting(context, 'Outlet');
           }),
           child: Container(
             margin: EdgeInsets.fromLTRB(12, 8, 12, 8),

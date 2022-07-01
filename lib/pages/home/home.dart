@@ -67,7 +67,7 @@ class HomeHeaderLayout extends StatelessWidget {
               ),
               IconButton(
                 onPressed: (() {
-                  _gf.handleGridClick(context, 'Notification');
+                  _gf.handleRouting(context, 'Notification');
                 }),
                 icon: Icon(
                   Icons.notifications,
