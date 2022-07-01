@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import '../../globalfunction.dart' as _gf;
+import '../../globalclass.dart' as _gc;
 import '../../pages/modal/stackrouting.dart' as _routing;
 
 class Item {
@@ -18,12 +19,12 @@ class GridViewComponent extends StatefulWidget {
 }
 
 class _GridViewComponentState extends State<GridViewComponent> {
-  List<Item> itemList = [
-    Item(url: "assets/table.png", name: "Reservation"),
-    Item(url: "assets/outlet.png", name: "Outlet"),
-    Item(url: "assets/bottle.png", name: "My Bottles"),
-    Item(url: "assets/board.png", name: "What's On"),
-    Item(url: "assets/chest.png", name: "Holy Chest"),
+  List<_gc.ItemWithUrl> itemList = [
+    _gc.ItemWithUrl("Reservation", "assets/table.png"),
+    _gc.ItemWithUrl("Outlet", "assets/outlet.png"),
+    _gc.ItemWithUrl("My Bottles", "assets/bottle.png"),
+    _gc.ItemWithUrl("What's On", "assets/board.png"),
+    _gc.ItemWithUrl("Holy Chest", "assets/chest.png"),
   ];
 
   @override
